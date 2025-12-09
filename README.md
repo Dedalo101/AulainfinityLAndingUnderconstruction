@@ -98,13 +98,7 @@ echo "GEMINI_API_KEY=your_key_here" > .env.local
 # Run development server
 npm run dev
 
-# Open browser to http://localhost:3000
-```
-
-### Test Credentials
-- **Student**: lucia@example.com / password123
-- **Admin**: admin / password
-
+# Open browser to http://localhost:
 ## Deployment
 
 - Hosted on **AI Studio** with automatic deployment pipeline
