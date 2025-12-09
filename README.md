@@ -1,5 +1,9 @@
 # AulaInfinity - Educational Platform
 
+## Mission
+
+AulaInfinity bridges the gap between traditional education and modern technology, making quality education accessible and engaging through AI-powered personalization, interactive content, and community-driven learning.
+
 ## What is AulaInfinity?
 
 AulaInfinity is a comprehensive online educational platform designed to empower students and educators through AI-enhanced learning and course management. It provides a dual-role system supporting both students and administrators with tailored experiences.
@@ -105,8 +109,4 @@ npm run dev
 - Uses **HashRouter** for AI Studio compatibility
 - Cloud Functions available for server-side operations (Node 18)
 - Production-ready with Firebase integration for persistent data
-
-## Mission
-
-AulaInfinity bridges the gap between traditional education and modern technology, making quality education accessible and engaging through AI-powered personalization, interactive content, and community-driven learning.
 
