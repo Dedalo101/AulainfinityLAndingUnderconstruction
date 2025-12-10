@@ -74,11 +74,6 @@ CourseLevel (e.g., ESO, Bachillerato)
         └─ Quiz (associated with video)
 ```
 
-### Role-Based Access
-- **Student Role**: Limited to `/app/*` routes - course browsing, learning, and personal features
-- **Admin Role**: Full access to `/admin/*` routes - content and user management
-- **Public Access**: Landing page and login available to all
-
 ### Real-Time Features
 - Live progress updates when students complete videos
 - Event-driven architecture for instant notification propagation
