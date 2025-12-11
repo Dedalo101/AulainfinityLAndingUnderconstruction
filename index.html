@@ -19,7 +19,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
+            scroll-behavior: smooth;
         }
 
         /* Animated background elements */
@@ -60,6 +62,8 @@
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             animation: slideUp 0.8s ease-out;
+            width: 100%;
+            margin: auto;
         }
 
         @keyframes slideUp {
@@ -313,9 +317,14 @@
 
         /* Responsive design */
         @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
             .container {
-                margin: 20px;
-                padding: 30px 20px;
+                margin: 20px auto;
+                padding: 25px 20px;
+                max-width: calc(100% - 20px);
             }
 
             .brand-name {
@@ -340,6 +349,12 @@
 
             .input-group button {
                 width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                max-width: calc(100% - 40px);
             }
         }
 
