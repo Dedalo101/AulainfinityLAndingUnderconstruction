@@ -100,8 +100,60 @@ npm run dev
 # Open browser to http://localhost:
 ## Deployment
 
-- Hosted on **AI Studio** with automatic deployment pipeline
-- Uses **HashRouter** for AI Studio compatibility
-- Cloud Functions available for server-side operations (Node 18)
-- Production-ready with Firebase integration for persistent data
+### GitHub Pages Deployment
+AulaInfinity está configurado para deployarse en GitHub Pages desde la rama `main`:
+
+1. **Configuración Automática:**
+   - El sitio se publica automáticamente desde `main` branch
+   - El archivo `index.html` está en la raíz del repositorio
+   - Todos los links CSS/JS usan rutas relativas para compatibilidad
+
+2. **Dominio Personalizado:**
+   - El archivo `CNAME` contiene `www.aulainfinity.com`
+   - Asegúrate de que tu registrador DNS apunte a GitHub Pages
+
+3. **Flujo de Actualización:**
+   ```bash
+   # 1. Realiza cambios en tu rama local
+   git add .
+   git commit -m "Actualización: descripción de cambios"
+   
+   # 2. Empuja a main
+   git push origin main
+   
+   # 3. GitHub Pages se redeploy automáticamente
+   # El sitio estará disponible en: https://www.aulainfinity.com
+   ```
+
+4. **Verificar Deployment:**
+   - Visita GitHub → Settings → Pages
+   - Confirma que "Source" está configurado a "main"
+   - El estado debe mostrar "Your site is live"
+
+### Producción (AI Studio / Firebase)
+- La rama `ai-studio` se usa para deployar en AI Studio
+- Cloud Functions disponibles para operaciones server-side (Node 18)
+- Integración con Firebase para datos persistentes
+- HashRouter para compatibilidad con AI Studio
+
+### Estructura de Archivos para Pages
+```
+/
+├── index.html           (Página principal)
+├── privacy.html         (Política de Privacidad)
+├── terms.html          (Términos de Servicio)
+├── styles.css          (Estilos)
+├── main.js             (JavaScript)
+├── CNAME               (Dominio personalizado)
+├── LICENSE
+├── README.md
+└── .github/            (Workflows de GitHub Actions)
+```
+
+### Optimizaciones para Rendimiento
+- Página estática (sin compilación necesaria)
+- CSS y JS minimizados
+- Imágenes optimizadas
+- Smooth scrolling nativo
+- Carga rápida en conexiones 3G+
 
