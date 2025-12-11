@@ -17,21 +17,31 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
+            width: 100%;
             overflow-x: hidden;
             overflow-y: auto;
             scroll-behavior: smooth;
+            padding: 0;
+            margin: 0;
+            padding-top: max(20px, env(safe-area-inset-top));
+            padding-bottom: max(20px, env(safe-area-inset-bottom));
         }
 
         /* Animated background elements */
         .background-elements {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
+            width: 100%;
+            height: 100vh;
             overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
         }
 
         .bubble {
@@ -192,11 +202,14 @@
             background: #f8f9ff;
             border-radius: 15px;
             transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
         }
 
         .feature:hover {
             background: #f0f2ff;
             transform: translateY(-5px);
+            border-color: #667eea;
         }
 
         .feature-icon {
@@ -208,6 +221,99 @@
             font-size: 14px;
             font-weight: 600;
             color: #333;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.3s ease-out;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #999;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: #333;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+
+        .modal-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .modal-features {
+            list-style: none;
+            margin: 15px 0;
+            padding: 0;
+        }
+
+        .modal-features li {
+            padding: 8px 0;
+            color: #666;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal-features li:last-child {
+            border-bottom: none;
+        }
+
+        .modal-features strong {
+            color: #667eea;
+            font-weight: 600;
         }
 
         /* Newsletter signup */
@@ -318,13 +424,14 @@
         /* Responsive design */
         @media (max-width: 600px) {
             body {
-                padding: 10px;
+                padding-top: max(10px, env(safe-area-inset-top));
+                padding-bottom: max(10px, env(safe-area-inset-bottom));
             }
 
             .container {
-                margin: 20px auto;
+                margin: 10px auto;
                 padding: 25px 20px;
-                max-width: calc(100% - 20px);
+                max-width: calc(100% - 40px);
             }
 
             .brand-name {
@@ -422,21 +529,78 @@
 
         <!-- Features Coming Soon -->
         <div class="features">
-            <div class="feature">
+            <div class="feature" onclick="openModal('interactive')">
                 <div class="feature-icon">📚</div>
                 <div class="feature-title">Cursos Interactivos</div>
             </div>
-            <div class="feature">
+            <div class="feature" onclick="openModal('ai')">
                 <div class="feature-icon">🤖</div>
                 <div class="feature-title">Tutor IA Avanzado</div>
             </div>
-            <div class="feature">
+            <div class="feature" onclick="openModal('analytics')">
                 <div class="feature-icon">📊</div>
                 <div class="feature-title">Análisis de Progreso</div>
             </div>
-            <div class="feature">
+            <div class="feature" onclick="openModal('achievements')">
                 <div class="feature-icon">🏆</div>
                 <div class="feature-title">Sistema de Logros</div>
+            </div>
+        </div>
+
+        <!-- Modals -->
+        <div id="interactiveModal" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal('interactive')">&times;</button>
+                <h2 class="modal-title">Cursos Interactivos</h2>
+                <p class="modal-description">Acceso a cursos estructurados organizados por nivel educativo:</p>
+                <ul class="modal-features">
+                    <li><strong>Navegación de Cursos</strong> - Explora cursos disponibles organizados por nivel (ESO, Bachillerato, EBAU)</li>
+                    <li><strong>Contenido de Video</strong> - Acceso a contenido de video organizado con integración de YouTube y recursos descargables</li>
+                    <li><strong>Cuestionarios Interactivos</strong> - Prueba tus conocimientos con cuestionarios vinculados al contenido de video</li>
+                    <li><strong>Recursos Complementarios</strong> - Materiales descargables para mejorar tu aprendizaje</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="aiModal" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal('ai')">&times;</button>
+                <h2 class="modal-title">Tutor IA Avanzado</h2>
+                <p class="modal-description">Obtén ayuda personalizada de un tutor de IA impulsado por Gemini API:</p>
+                <ul class="modal-features">
+                    <li><strong>Asistencia Personalizada</strong> - Ayuda inteligente adaptada a tu nivel y necesidades</li>
+                    <li><strong>Análisis de Imágenes</strong> - El tutor puede analizar imágenes para explicar conceptos</li>
+                    <li><strong>Respuestas Inmediatas</strong> - Obtén respuestas a tus dudas al instante</li>
+                    <li><strong>Solicitudes de Tutoría</strong> - Solicita sesiones de tutoría uno a uno con disponibilidad programada</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="analyticsModal" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal('analytics')">&times;</button>
+                <h2 class="modal-title">Análisis de Progreso</h2>
+                <p class="modal-description">Monitorea tu aprendizaje con análisis detallados y estadísticas:</p>
+                <ul class="modal-features">
+                    <li><strong>Seguimiento de Progreso</strong> - Monitorea tu progreso de aprendizaje con análisis detallados</li>
+                    <li><strong>Estadísticas de Desempeño</strong> - Visualiza tu rendimiento en cursos y cuestionarios</li>
+                    <li><strong>Actualizaciones en Tiempo Real</strong> - Recibe actualizaciones instantáneas al completar videos</li>
+                    <li><strong>Gestión de Agenda</strong> - Realiza un seguimiento de fechas importantes, exámenes y eventos</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="achievementsModal" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal('achievements')">&times;</button>
+                <h2 class="modal-title">Sistema de Logros</h2>
+                <p class="modal-description">Mantente motivado con un sistema de gamificación completo:</p>
+                <ul class="modal-features">
+                    <li><strong>Insignias y Logros</strong> - Gana insignias y logros para mantener la motivación</li>
+                    <li><strong>Reconocimiento de Hitos</strong> - Celebra tus avances en el aprendizaje</li>
+                    <li><strong>Tabla de Clasificación</strong> - Compite amistosamente con otros estudiantes</li>
+                    <li><strong>Suscripciones Premium</strong> - Accede a contenido premium a través de planes flexibles</li>
+                </ul>
             </div>
         </div>
 
@@ -471,6 +635,42 @@
     </div>
 
     <script>
+        function openModal(type) {
+            const modals = {
+                'interactive': 'interactiveModal',
+                'ai': 'aiModal',
+                'analytics': 'analyticsModal',
+                'achievements': 'achievementsModal'
+            };
+            const modal = document.getElementById(modals[type]);
+            if (modal) {
+                modal.classList.add('show');
+            }
+        }
+
+        function closeModal(type) {
+            const modals = {
+                'interactive': 'interactiveModal',
+                'ai': 'aiModal',
+                'analytics': 'analyticsModal',
+                'achievements': 'achievementsModal'
+            };
+            const modal = document.getElementById(modals[type]);
+            if (modal) {
+                modal.classList.remove('show');
+            }
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.classList.remove('show');
+                }
+            });
+        }
+
         function handleSubscribe() {
             const emailInput = document.getElementById('emailInput');
             const successMessage = document.getElementById('successMessage');
