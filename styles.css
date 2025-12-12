@@ -679,3 +679,91 @@ footer {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+/* ==========================================
+   UTILITY CLASSES FOR LEGAL PAGES
+   ========================================== */
+
+.legal-main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.legal-content ul {
+  margin-left: 1.5rem;
+  line-height: 1.8;
+}
+
+.legal-footer {
+  background: var(--color-dark);
+  color: var(--color-white);
+  padding: var(--spacing-lg);
+  text-align: center;
+  margin-top: var(--spacing-2xl);
+}
+
+.legal-footer a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.legal-footer a:hover,
+.legal-footer a:focus {
+  text-decoration: underline;
+}
+
+.legal-divider {
+  margin: var(--spacing-2xl) 0;
+}
+
+.legal-footer-note {
+  text-align: center;
+  color: #666;
+  font-size: var(--font-size-sm);
+}
+
+.form-success {
+  display: none;
+  background: var(--color-success);
+  color: var(--color-white);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 4px;
+  margin-bottom: var(--spacing-md);
+}
+
+.form-success.show {
+  display: block;
+}
+
+.section-subheading {
+  margin-top: var(--spacing-2xl);
+}
+
+.roadmap-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.progress-bar {
+  margin-top: var(--spacing-sm);
+}
+
+.progress-fill {
+  width: 0;
+}
+
+.progress-fill[data-width="100"] {
+  width: 100%;
+}
+
+.progress-fill[data-width="75"] {
+  width: 75%;
+}
+
+.progress-fill[data-width="50"] {
+  width: 50%;
+}
+
+.progress-fill[data-width="25"] {
+  width: 25%;
+}

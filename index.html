@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AulaInfinity - Educational platform powered by AI for interactive learning and course management.">
-    <meta name="theme-color" content="#667eea">
     <title>AulaInfinity - AI-Powered Education Platform</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -21,11 +20,11 @@
                 <span></span>
                 <span></span>
             </button>
-            <ul class="navbar-menu" id="navbarMenu" role="menubar">
-                <li><a href="#about" role="menuitem">Acerca</a></li>
-                <li><a href="#features" role="menuitem">Características</a></li>
-                <li><a href="#roadmap" role="menuitem">Hoja de Ruta</a></li>
-                <li><a href="#contact" role="menuitem">Contacto</a></li>
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="#about">Acerca</a></li>
+                <li><a href="#features">Características</a></li>
+                <li><a href="#roadmap">Hoja de Ruta</a></li>
+                <li><a href="#contact">Contacto</a></li>
             </ul>
         </div>
     </nav>
@@ -89,7 +88,7 @@
                 </div>
             </div>
 
-            <h3 style="margin-top: 3rem;">Para Administradores</h3>
+            <h3 class="section-subheading">Para Administradores</h3>
             <div class="features-grid">
                 <div class="feature-card" onclick="openModal('users')" role="button" tabindex="0">
                     <h3><span class="feature-icon">👥</span> Gestión de Usuarios</h3>
@@ -118,36 +117,36 @@
             <h2 id="roadmap-title">Hoja de Ruta</h2>
             <p>Nuestro plan de desarrollo incluye características innovadoras basadas en retroalimentación de usuarios y tendencias tecnológicas.</p>
             
-            <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            <div class="features-grid roadmap-grid">
                 <div class="feature-card">
                     <h3>Fase 1: MVP</h3>
                     <p>Autenticación, gestión de cursos básicos y reproducción de video.</p>
-                    <div class="progress-bar" style="margin-top: 1rem;">
-                        <div class="progress-fill" style="width: 100%;"></div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="100"></div>
                     </div>
                 </div>
                 
                 <div class="feature-card">
                     <h3>Fase 2: IA y Análisis</h3>
                     <p>Integración de Gemini API para tutoría inteligente y análisis de progreso.</p>
-                    <div class="progress-bar" style="margin-top: 1rem;">
-                        <div class="progress-fill" style="width: 75%;"></div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="75"></div>
                     </div>
                 </div>
                 
                 <div class="feature-card">
                     <h3>Fase 3: Comunidad</h3>
                     <p>Sistema de comentarios, tutoría en directo y gamificación.</p>
-                    <div class="progress-bar" style="margin-top: 1rem;">
-                        <div class="progress-fill" style="width: 50%;"></div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="50"></div>
                     </div>
                 </div>
                 
                 <div class="feature-card">
                     <h3>Fase 4: Escalabilidad</h3>
                     <p>Optimización de rendimiento y expansión internacional.</p>
-                    <div class="progress-bar" style="margin-top: 1rem;">
-                        <div class="progress-fill" style="width: 25%;"></div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="25"></div>
                     </div>
                 </div>
             </div>
@@ -189,7 +188,7 @@
                     <small id="message-hint">Cuéntanos sobre tus necesidades educativas</small>
                 </div>
                 
-                <div id="formSuccess" class="form-success" role="alert" style="display: none;">
+                <div id="formSuccess" class="form-success" role="alert">
                     ✓ ¡Gracias! Te notificaremos cuando lancemos.
                 </div>
                 
@@ -204,7 +203,7 @@
             <button class="modal-close" onclick="closeModal('courses')" aria-label="Close modal">×</button>
             <h2 id="courses-modal-title">Gestión de Cursos</h2>
             <p>Explora cursos estructurados organizados por nivel educativo español:</p>
-            <ul style="margin-left: 1.5rem; line-height: 1.8;">
+            <ul class="legal-content">
                 <li><strong>ESO (Educación Secundaria Obligatoria)</strong> - Cursos para estudiantes de 12-16 años</li>
                 <li><strong>Bachillerato</strong> - Programas preparatorios para estudiantes de 16-18 años</li>
                 <li><strong>EBAU</strong> - Preparación para la Evaluación para el Acceso a la Universidad</li>
@@ -217,7 +216,7 @@
             <button class="modal-close" onclick="closeModal('videos')" aria-label="Close modal">×</button>
             <h2 id="videos-modal-title">Aprendizaje por Video</h2>
             <p>Accede a contenido de video organizado con:</p>
-            <ul style="margin-left: 1.5rem; line-height: 1.8;">
+            <ul class="legal-content">
                 <li>Integración de YouTube para transmisión fluida</li>
                 <li>Recursos descargables para referencia offline</li>
                 <li>Subtítulos en múltiples idiomas</li>
@@ -231,7 +230,7 @@
             <button class="modal-close" onclick="closeModal('ai')" aria-label="Close modal">×</button>
             <h2 id="ai-modal-title">Tutor IA Avanzado</h2>
             <p>Obtén ayuda personalizada de nuestro tutor de IA impulsado por Gemini API:</p>
-            <ul style="margin-left: 1.5rem; line-height: 1.8;">
+            <ul class="legal-content">
                 <li>Respuestas adaptadas a tu nivel de aprendizaje</li>
                 <li>Análisis de imágenes para explicar conceptos matemáticos y científicos</li>
                 <li>Disponibilidad 24/7 para apoyo instantáneo</li>
@@ -245,7 +244,7 @@
             <button class="modal-close" onclick="closeModal('quizzes')" aria-label="Close modal">×</button>
             <h2 id="quizzes-modal-title">Cuestionarios Interactivos</h2>
             <p>Prueba tus conocimientos con nuestro sistema de evaluación interactivo:</p>
-            <ul style="margin-left: 1.5rem; line-height: 1.8;">
+            <ul class="legal-content">
                 <li>Cuestionarios vinculados directamente al contenido de video</li>
                 <li>Retroalimentación inmediata sobre respuestas</li>
                 <li>Variedad de tipos de preguntas (opción múltiple, respuesta corta, etc.)</li>
@@ -259,7 +258,7 @@
             <button class="modal-close" onclick="closeModal('progress')" aria-label="Close modal">×</button>
             <h2 id="progress-modal-title">Seguimiento de Progreso</h2>
             <p>Monitorea tu aprendizaje con herramientas de análisis avanzadas:</p>
-            <ul style="margin-left: 1.5rem; line-height: 1.8;">
+            <ul class="legal-content">
                 <li>Panel de control personalizado con estadísticas de progreso</li>
                 <li>Gráficos de rendimiento por materia y tema</li>
                 <li>Identificación automática de áreas de mejora</li>
@@ -273,7 +272,7 @@
             <button class="modal-close" onclick="closeModal('achievements')" aria-label="Close modal">×</button>
             <h2 id="achievements-modal-title">Sistema de Logros</h2>
             <p>Mantente motivado con nuestro sistema completo de gamificación:</p>
-            <ul style="margin-left: 1.5rem; line-height: 1.8;">
+            <ul class="legal-content">
                 <li>Insignias por completar módulos y alcanzar hitos</li>
                 <li>Tabla de clasificación comunitaria segura</li>
                 <li>Desafíos semanales y mensuales</li>
@@ -287,7 +286,7 @@
             <button class="modal-close" onclick="closeModal('discussion')" aria-label="Close modal">×</button>
             <h2 id="discussion-modal-title">Discusión y Comentarios</h2>
             <p>Participa en una comunidad de aprendizaje activa:</p>
-            <ul style="margin-left: 1.5rem; line-height: 1.8;">
+            <ul class="legal-content">
                 <li>Sistema de comentarios integrado en cada lección</li>
                 <li>Respuestas de instructores y compañeros</li>
                 <li>Moderación comunitaria para mantener un entorno seguro</li>
@@ -301,7 +300,7 @@
             <button class="modal-close" onclick="closeModal('tutoring')" aria-label="Close modal">×</button>
             <h2 id="tutoring-modal-title">Solicitudes de Tutoría</h2>
             <p>Obtén ayuda personalizada de tutores calificados:</p>
-            <ul style="margin-left: 1.5rem; line-height: 1.8;">
+            <ul class="legal-content">
                 <li>Sistema de reserva para sesiones uno a uno</li>
                 <li>Tutores especializados por materia</li>
                 <li>Disponibilidad flexible según tu horario</li>
@@ -315,7 +314,7 @@
             <button class="modal-close" onclick="closeModal('users')" aria-label="Close modal">×</button>
             <h2 id="users-modal-title">Gestión de Usuarios</h2>
             <p>Herramientas administrativas completas para gestionar estudiantes:</p>
-            <ul style="margin-left: 1.5rem; line-height: 1.8;">
+            <ul class="legal-content">
                 <li>Crear y editar perfiles de estudiantes</li>
                 <li>Gestionar suscripciones y acceso a contenido</li>
                 <li>Monitorear inscripción en cursos</li>
@@ -329,7 +328,7 @@
             <button class="modal-close" onclick="closeModal('content')" aria-label="Close modal">×</button>
             <h2 id="content-modal-title">Gestión de Contenidos</h2>
             <p>Suite completa para crear y organizar contenido educativo:</p>
-            <ul style="margin-left: 1.5rem; line-height: 1.8;">
+            <ul class="legal-content">
                 <li>Editor intuitivo para crear cursos y módulos</li>
                 <li>Organización jerárquica de temas y lecciones</li>
                 <li>Carga y gestión de videos</li>
@@ -343,7 +342,7 @@
             <button class="modal-close" onclick="closeModal('monitoring')" aria-label="Close modal">×</button>
             <h2 id="monitoring-modal-title">Monitoreo de Estudiantes</h2>
             <p>Visualiza análisis detallados del progreso estudiantil:</p>
-            <ul style="margin-left: 1.5rem; line-height: 1.8;">
+            <ul class="legal-content">
                 <li>Panel de control con métricas clave</li>
                 <li>Rendimiento individual y de cohortes</li>
                 <li>Identificación de estudiantes en riesgo</li>
@@ -357,7 +356,7 @@
             <button class="modal-close" onclick="closeModal('moderation')" aria-label="Close modal">×</button>
             <h2 id="moderation-modal-title">Moderación Comunitaria</h2>
             <p>Herramientas para mantener un entorno de aprendizaje seguro:</p>
-            <ul style="margin-left: 1.5rem; line-height: 1.8;">
+            <ul class="legal-content">
                 <li>Panel de moderación para revisar comentarios</li>
                 <li>Filtros automáticos para contenido inapropiado</li>
                 <li>Gestión de reportes de usuarios</li>
